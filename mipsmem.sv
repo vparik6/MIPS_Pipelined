@@ -20,7 +20,7 @@ module imem(input  logic [5:0]  a,
 
   initial
     begin
-      $readmemh("C:/intelFPGA_lite/18.1/ECE 469/mips/memfile2.dat",RAM); // initialize memory
+      $readmemh("C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/memfile.dat",RAM); // initialize memory
     end
 
   assign rd = RAM[a]; // word aligned

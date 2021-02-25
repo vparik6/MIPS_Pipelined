@@ -27,7 +27,7 @@ module mipstest();
   always@(negedge clk)
     begin
       if(memwrite) begin
-        if(dataadr === 84 & writedata === -33022) begin
+        if(dataadr === 84 & writedata === 7) begin
           $display("Simulation succeeded");
           $stop;
         end else if (dataadr !== 82) begin

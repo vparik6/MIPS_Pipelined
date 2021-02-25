@@ -1,0 +1,515 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/visha/Downloads/2. Winter 2021/ECE 571/Homework5
+vadder
+Z0 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z1 !s110 1614232816
+!i10b 1
+!s100 :Kil=b:jdY6`M2PD2ZhNS1
+IRT5:cCmn6FE<mC17mIi2N2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 !s105 mipsparts_sv_unit
+S1
+Z4 dC:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined
+Z5 w1614229586
+Z6 8C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/mipsparts.sv
+Z7 FC:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/mipsparts.sv
+Z8 L0 20
+Z9 OP;L;10.4a;61
+r1
+!s85 0
+31
+Z10 !s108 1614232816.000000
+Z11 !s107 C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/mipsparts.sv|
+Z12 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/mipsparts.sv|
+!s101 -O0
+!i113 1
+Z13 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -O0
+vadderr
+R0
+R1
+!i10b 1
+!s100 =iidMD0G6nBTOf@o2n8bj1
+Ii[_SZaS`71M0[ZQTf`:GT1
+R2
+Z14 !s105 RCA_32bit_sv_unit
+S1
+R4
+Z15 w1614228535
+Z16 8C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/RCA_32bit.sv
+Z17 FC:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/RCA_32bit.sv
+R8
+R9
+r1
+!s85 0
+31
+R10
+Z18 !s107 C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/RCA_32bit.sv|
+Z19 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/RCA_32bit.sv|
+!s101 -O0
+!i113 1
+R13
+valu
+R0
+Z20 !s110 1614232815
+!i10b 1
+!s100 VH1i<Z?R9?Sol;cW=[_L:0
+IOhnDRMld5LE0MPCLDiWz80
+R2
+!s105 alu_sv_unit
+S1
+R4
+R15
+8C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/alu.sv
+FC:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/alu.sv
+L0 1
+R9
+r1
+!s85 0
+31
+Z21 !s108 1614232815.000000
+!s107 C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/alu.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/alu.sv|
+!s101 -O0
+!i113 1
+R13
+valudec
+R0
+R20
+!i10b 1
+!s100 ;;BGY1K[D8ACzfG`oNgR11
+Ic=LA1ldScEh?N;Yh>D]KN3
+R2
+Z22 !s105 controller_sv_unit
+S1
+R4
+Z23 w1614230793
+Z24 8C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/controller.sv
+Z25 FC:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/controller.sv
+L0 49
+R9
+r1
+!s85 0
+31
+R21
+Z26 !s107 C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/controller.sv|
+Z27 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/controller.sv|
+!s101 -O0
+!i113 1
+R13
+vcontroller
+R0
+R20
+!i10b 1
+!s100 LBi2:f:2`HnD7BIzEWYzl1
+I2M>_eNQSfoa<9970ma4>D1
+R2
+R22
+S1
+R4
+R23
+R24
+R25
+L0 1
+R9
+r1
+!s85 0
+31
+R21
+R26
+R27
+!s101 -O0
+!i113 1
+R13
+vdatapath
+R0
+R20
+!i10b 1
+!s100 NcY^SjG:DcIXo?K3_WS:f3
+I3Q0Zn2``I[He8R8iYcPWQ3
+R2
+!s105 datapath_sv_unit
+S1
+R4
+w1614232795
+8C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/datapath.sv
+FC:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/datapath.sv
+L0 1
+R9
+r1
+!s85 0
+31
+R21
+!s107 C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/datapath.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/datapath.sv|
+!s101 -O0
+!i113 1
+R13
+vdmem
+R0
+R1
+!i10b 1
+!s100 b_?aMYzMVQfd]QY1MFHT50
+IlW1^`_gLmaoM0T2ZMALHh0
+R2
+Z28 !s105 mipsmem_sv_unit
+S1
+R4
+Z29 w1614232300
+Z30 8C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/mipsmem.sv
+Z31 FC:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/mipsmem.sv
+L0 3
+R9
+r1
+!s85 0
+31
+R10
+Z32 !s107 C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/mipsmem.sv|
+Z33 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/mipsmem.sv|
+!s101 -O0
+!i113 1
+R13
+vflopenr
+R0
+R1
+!i10b 1
+!s100 0=YjbDHKeDBP2eOe:BD`K2
+IOlOi5@=zaem2o8kDNK4?P0
+R2
+R3
+S1
+R4
+R5
+R6
+R7
+L0 54
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!s101 -O0
+!i113 1
+R13
+vflopr
+R0
+R1
+!i10b 1
+!s100 B>P1izD:oA`eDFgI^`CNn2
+ImX428@^HF9CjToZQ_m1050
+R2
+R3
+S1
+R4
+R5
+R6
+R7
+L0 44
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!s101 -O0
+!i113 1
+R13
+vimem
+R0
+R1
+!i10b 1
+!s100 nEmL39o^5m3Z[8aDodgoD1
+IKYTdoXh=H7Y]jk9:C;n=f3
+R2
+R28
+S1
+R4
+R29
+R30
+R31
+L0 16
+R9
+r1
+!s85 0
+31
+R10
+R32
+R33
+!s101 -O0
+!i113 1
+R13
+vmaindec
+R0
+R20
+!i10b 1
+!s100 h8O]z9bHd>zf]3;`5`?I[0
+I=Yl;ANi96nIF]=bZ@KjYT3
+R2
+R22
+S1
+R4
+R23
+R24
+R25
+L0 21
+R9
+r1
+!s85 0
+31
+R21
+R26
+R27
+!s101 -O0
+!i113 1
+R13
+vmips
+R0
+R20
+!i10b 1
+!s100 502=15ML^d[`iicSPXami0
+Io7?75jzN`A26:mho[5V=43
+R2
+!s105 mips_sv_unit
+S1
+R4
+w1614229554
+8C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/mips.sv
+FC:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/mips.sv
+L0 5
+R9
+r1
+!s85 0
+31
+R21
+!s107 C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/mips.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/mips.sv|
+!s101 -O0
+!i113 1
+R13
+vmipstest
+R0
+R1
+!i10b 1
+!s100 F^N>CiMhW8zLjocWYid_I3
+ICgZMQ<?5PQO``>`;1JMcF0
+R2
+!s105 mipstest_sv_unit
+S1
+R4
+w1614232160
+8C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/mipstest.sv
+FC:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/mipstest.sv
+L0 3
+R9
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/mipstest.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/mipstest.sv|
+!s101 -O0
+!i113 1
+R13
+vmipstop
+R0
+R1
+!i10b 1
+!s100 @6>9T5Nme:0i=EzKO26j[0
+Ij2zkP4=6B;3z?zB`4f:a93
+R2
+!s105 mipstop_sv_unit
+S1
+R4
+R15
+8C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/mipstop.sv
+FC:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/mipstop.sv
+L0 5
+R9
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/mipstop.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/mipstop.sv|
+!s101 -O0
+!i113 1
+R13
+vmux2
+R0
+R1
+!i10b 1
+!s100 >[;7Lg@G:[GIUg1[A]GNc1
+I?AYT3MiJz<>jzAP0O1;CL1
+R2
+R3
+S1
+R4
+R5
+R6
+R7
+L0 64
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!s101 -O0
+!i113 1
+R13
+vmux4to1
+R0
+R1
+!i10b 1
+!s100 0U40J09W73Wi@GkR;khYT0
+I6nDnkbNWU6=U94ee[fID81
+R2
+R3
+S1
+R4
+R5
+R6
+R7
+L0 72
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!s101 -O0
+!i113 1
+R13
+vRCA_32bit
+R0
+R1
+!i10b 1
+!s100 Hd`3Y`YFmW^DV]c`YmVEm1
+IHC=[e6mPKg>57<ZkXCEo73
+R2
+R14
+S1
+R4
+R15
+R16
+R17
+L0 1
+R9
+r1
+!s85 0
+31
+R10
+R18
+R19
+!s101 -O0
+!i113 1
+R13
+n@r@c@a_32bit
+vregfile
+R0
+R1
+!i10b 1
+!s100 0DZdbhT9o8JIz;?[CGE3O0
+I[`DI9Yh<GacG7JWlohlk>3
+R2
+R3
+S1
+R4
+R5
+R6
+R7
+L0 3
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!s101 -O0
+!i113 1
+R13
+vsignext
+R0
+R1
+!i10b 1
+!s100 M?43Ln`<SSf106=_LVWF41
+Ime45;eb7M9zE<@NiE5mIk0
+R2
+R3
+S1
+R4
+R5
+R6
+R7
+L0 38
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!s101 -O0
+!i113 1
+R13
+vsl2
+R0
+R1
+!i10b 1
+!s100 z]?UczUX6az1][OW67bdY2
+I352OEOIZH1dcOk3mBTMFN1
+R2
+R3
+S1
+R4
+R5
+R6
+R7
+L0 26
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!s101 -O0
+!i113 1
+R13
+vzeroext
+R0
+R1
+!i10b 1
+!s100 I7Tzc7APWm>10@n][^BRm2
+I`2ScCQ3XL?]kD_TiUA0i42
+R2
+R3
+S1
+R4
+R5
+R6
+R7
+L0 32
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!s101 -O0
+!i113 1
+R13
