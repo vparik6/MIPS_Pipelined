@@ -16,6 +16,6 @@ module aludec(input  logic [5:0] funct,
 						6'b000000: alucontrol = 4'b0100; // SLL
 						6'b000010: alucontrol = 4'b0101; // SRL
 						default:   alucontrol = 4'bxxxx; // ???
-					endcase
+					 endcase
 		endcase
 endmodule

@@ -7,7 +7,7 @@ module imem(input  logic [5:0]  a,
 
 	initial
     begin
-      $readmemh("memfile.dat", RAM); // initialize memory
+      $readmemh("C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/src/memfile.dat", RAM); // initialize memory
     end
 
 	assign rd = RAM[a]; // word aligned
@@ -22,11 +22,6 @@ module dmem(input  logic        clk, we, sb, //sb signal to store byte or word
 
 	assign rd = RAM[a[31:2]]; // word aligned
   
-	initial
-	begin
-		$readmemh("memfile.dat", RAM); // initialize memory
-	end
-
 	always @(posedge clk)
     if (we)
 		if(sb)
