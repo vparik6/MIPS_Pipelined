@@ -34,6 +34,14 @@ module datapath(input logic 		clk, reset,
 	logic [31:0] hiE, loE, hiM, loM, hiW, loW;
 	logic [31:0] hireg, loreg, rfinput;
 	
+	assign opD = instrD[31:26];
+	assign functD = instrD[5:0];
+	assign rsD = instrD[25:21];
+	assign rtD = instrD[20:16];
+	assign rdD = instrD[15:11];
+	assign shamtD = instrD[10:6];
+	assign flushD = (pcsrcD & ~stallD) | jumpD | jrD;
+	
 	// hazard detection
 	hazard h(rsD, rtD, rsE, rtE, writeregE, writeregM,
 			 writeregW,regwriteE, regwriteM, regwriteW,
@@ -65,13 +73,6 @@ module datapath(input logic 		clk, reset,
 	mux2 #(32) 	   forwardadmux(srcaD, aluoutM, forwardaD, srca2D);
 	mux2 #(32) 	   forwardbdmux(srcbD, aluoutM, forwardbD, srcb2D);
 	eqcmp 		   comp(srca2D, srcb2D, equalD);
-	assign opD = 	instrD[31:26];
-	assign functD = instrD[5:0];
-	assign rsD = 	instrD[25:21];
-	assign rtD = 	instrD[20:16];
-	assign rdD = 	instrD[15:11];
-	assign shamtD = instrD[10:6];
-	assign flushD = (pcsrcD & ~stallD) | jumpD | jrD;
 
 	// Execute stage
 	floprc #(32) r1E(clk, reset, flushE, srcaD, srcaE);
@@ -114,4 +115,11 @@ module datapath(input logic 		clk, reset,
 	mux2 #(32) resmux(aluoutW, selectedreaddataW, memtoregW, aluordata);
 	mux2 #(32) resorpc(aluordata, pcplus4W, jalW, resultW);
 	mux3 #(32) resulthilo(resultW, loreg, hireg, mfhlW, rfinput);
+	
+	property pipelineFlushed;
+		@(posedge clk) disable iff (reset)
+		flushE |=> ({srcaE, srcbE, signimmE, pcplus4E, rsE, rtE, rdE, shamtE} =='0);
+	endproperty
+	assert property(pipelineFlushed) else $warning("pipeline is not being flushed properly");
+
 endmodule

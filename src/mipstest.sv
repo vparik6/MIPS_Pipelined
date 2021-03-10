@@ -1,7 +1,7 @@
-// Example testbench for MIPS processor
+// Testbench for top level
 module mipstest();
 
-  logic        clk;
+  bit          clk;
   logic        reset;
   logic [31:0] writedata, dataadr;
   logic        memwrite;
@@ -9,32 +9,21 @@ module mipstest();
   // instantiate device to be tested
   mipstop dut(clk, reset, writedata, dataadr, memwrite);
   
-  // initialize test
   initial
     begin
-      reset <= 1; # 22; reset <= 0;
+      reset <= 1; # 12; reset <= 0;
     end
 
-  // generate clock to sequence tests
-  always
-    begin
-      clk <= 1; # 5; clk <= 0; # 5;
-    end
+  initial begin
+	  forever #5 clk = ~clk;
+  end
 
-  // check that 7 gets written to address 84
+  // check that address 8 has data 'h04ee9112
   always@(negedge clk)
     begin
-      if(memwrite) begin
-        if(dataadr === 84 & writedata === 7) begin
+        if(dataadr == 8 & writedata == 'h04ee9112) begin
           $display("Simulation succeeded");
           $stop;
-        end else if (dataadr !== 80) begin
-          $display("Simulation failed");
-          $stop;
-        end
-      end
+		end
     end
 endmodule
-
-
-

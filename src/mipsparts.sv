@@ -1,52 +1,44 @@
 // Components used in MIPS processor
-module regfile(input  logic        clk, 
-               input  logic        we3, 
+// register files
+module regfile(input  logic        clk, we3, 
                input  logic [4:0]  ra1, ra2, wa3, 
                input  logic [31:0] wd3, 
                output logic [31:0] rd1, rd2);
 
-  logic [31:0] rf[31:0];
-  
-  always
-	begin
-	if(clk)
+	logic [31:0] rf[31:0];
+
+	always_ff @(negedge clk)
+		if (we3) 
+			rf[wa3] <= wd3;	
+
 	assign rd1 = (ra1 != 0) ? rf[ra1] : 0;
 	assign rd2 = (ra2 != 0) ? rf[ra2] : 0;
-        #5;
-     if (we3) rf[wa3] <= wd3;
-	end
 endmodule
-
+// adder
 module adder(input  logic [31:0] a, b,
              output logic [31:0] y);
 
 	assign y = a + b;
 endmodule
-
+// shift left by 2
 module sl2(input  logic [31:0] a,
            output logic [31:0] y);
 
-	assign y = {a[29:0], 2'b00}; 		// shift left by 2
+	assign y = a << 2;
 endmodule
-
+// comparator
 module eqcmp(input logic [31:0] a, b,
 			 output logic 		isEqual);
 	
 	assign isEqual = (a === b) ? 1 : 0;
 endmodule
-
-module zeroext(input  logic [15:0] a,
-               output logic [31:0] y);
-					
-	assign y = {16'b0, a};
-endmodule
-	
+// sign extend 16 bits
 module signext(input  logic [15:0] a,
                output logic [31:0] y);
               
 	assign y = {{16{a[15]}}, a};
 endmodule
-
+// sign extend 8 bits
 module signext8(input  logic [7:0]  a,
 				output logic [31:0] y);
 
@@ -54,7 +46,7 @@ module signext8(input  logic [7:0]  a,
 endmodule
 
 module flopr #(parameter WIDTH = 8)
-              (input  logic  			clk, reset,
+              (input  logic  clk, reset,
                input  logic [WIDTH-1:0] d, 
                output logic [WIDTH-1:0] q);
 
@@ -64,7 +56,7 @@ module flopr #(parameter WIDTH = 8)
 endmodule
 
 module floprc #(parameter WIDTH = 8)
-			   (input logic  			 clk, reset, clear,
+			   (input logic  clk, reset, clear,
 				input logic  [WIDTH-1:0] d,
 				output logic [WIDTH-1:0] q);
 
