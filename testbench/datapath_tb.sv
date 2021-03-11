@@ -30,7 +30,7 @@ end
 always #5 clk = ~clk;
 
 	initial begin
-		$readmemb("D:/PSU/2nd Term/Introduction to system verilog/MIPS_pipelined/MIPS_Pipelined-mainv3/MIPS_Pipelined-main/testfiles/testvectors_datapath.txt",testvector);
+		$readmemb("D:/PSU/2nd Term/Introduction to system verilog/MIPS_pipelined/MIPS_Pipelined/testfiles/testvectors_datapath.txt",testvector);
 		index = 0; errors = 0;
         $monitor(" index = %0d, testvector = %b", index, testvector[index]);
         
