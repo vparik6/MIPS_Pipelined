@@ -1,13 +1,14 @@
-// files needed for simulation:
-// mipsttest.sv  mipstop.sv, mipsmem.sv, mips.sv, mipsparts.sv
-// MIPS Pipelined processor
+/*
+MIPS pipelined processor
+*/
 
 module mips(input  logic        clk, reset,
-            output logic [31:0] pcF,
-            input  logic [31:0] instrF,
-            output logic 		memwriteM, sbM, // Wether to write byte, word in memory
-			output logic [31:0] aluoutM, writedataM,
-			input  logic [31:0] readdataM);
+			input  logic [31:0] instrF,
+			input  logic [31:0] readdataM,
+            output logic [31:0] pcF,           
+            output logic 		memwriteM, sbM,
+			output logic [31:0] aluoutM, writedataM,			
+			output logic [31:0] Register[31:0]);
 	
 	logic [5:0] opD, functD;
 	logic [1:0] regdstE, mfhlW;
@@ -24,6 +25,6 @@ module mips(input  logic        clk, reset,
 
 	datapath dp(clk, reset, memtoregE, memtoregM, memtoregW, pcsrcD, branchD, bneD,
 				alusrcE, regdstE, regwriteE, regwriteM, regwriteW, jumpD, jalD, jalW, jrD, lbW,
-				multordivE, hlwriteE, hlwriteM, hlwriteW, mfhlW, alucontrolE, equalD, pcF, instrF,
-				aluoutM, writedataM, readdataM, opD, functD, flushE);
+				multordivE, hlwriteE, hlwriteM, hlwriteW, mfhlW, alucontrolE, instrF, readdataM, equalD, pcF,
+				aluoutM, writedataM, opD, functD, flushE, Register);
 endmodule

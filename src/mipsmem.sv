@@ -6,7 +6,7 @@ module imem(input  logic [5:0]  a,
 	logic [31:0] InstMem[40];		// Instruction memory array of size 40
 	// supported opcode/func by mips processor 
     bit [5:0] validOpcode[] = '{'h08,'h00,'h23,'h2b,'h20,'h28,'h04,'h05,'h0a,'h02,'h03};
-	bit [5:0] validFunc[] = '{'h00,'h02,'h08,'h18,'h1a,'h12,'h10,'h20,'h22,'h24,'h25,'h26,'h27,'h2a};
+	bit [5:0] validFunc[] = '{'h00,'h02,'h08,'h18,'h1a,'h12,'h10,'h20,'h22,'h24,'h25,'h2a};
 	
 	initial
     begin
@@ -32,9 +32,10 @@ endmodule
 //Data Memory
 module dmem(input  logic  clk, we, sb, //sb signal to store byte or word
             input  logic [31:0] a, wd,
-            output logic [31:0] rd);
+            output logic [31:0] rd,
+			output logic [31:0] DataMem[9:0]);
 
-	logic [31:0] DataMem[9:0];     // data memory array of size 10
+	//logic [31:0] DataMem[9:0];     // data memory array of size 10
 
 	assign rd = DataMem[a[31:2]]; // word aligned
   

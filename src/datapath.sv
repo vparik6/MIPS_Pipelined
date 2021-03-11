@@ -8,18 +8,19 @@ module datapath(input logic 		clk, reset,
 				input logic  		multordivE, hlwriteE, hlwriteM, hlwriteW,
 				input logic  [1:0]  mfhlW,
 				input logic  [3:0]  alucontrolE,
-				output logic 		equalD,
-				output logic [31:0] pcF,
 				input logic  [31:0] instrF,
-				output logic [31:0] aluoutM, writedataM,
 				input logic  [31:0] readdataM,
+				output logic 		equalD,
+				output logic [31:0] pcF,			
+				output logic [31:0] aluoutM, writedataM,			
 				output logic [5:0]  opD, functD,
-				output logic 		flushE);
+				output logic 		flushE,
+				output logic [31:0] Register[31:0]);
 
 	logic 		 forwardaD, forwardbD;
 	logic [1:0]  forwardaE, forwardbE;
 	logic 		 stallF, flushD, zeroE, stallD;
-	logic [4:0]  rsD, rtD, rdD, rsE, rtE, rdE, shamtD, shamtE;
+	logic [4:0]  rsD, rtD, rdD, rsE, rtE, rdE, shamtD, shamtE; 
 	logic [4:0]  writeregE, writeregM, writeregW;
 	logic [31:0] pcnextFD, pcnextbrFD, pcplus4F, pcbranchD;
 	logic [31:0] signimmD, signimmE, signimmshD;
@@ -55,9 +56,9 @@ module datapath(input logic 		clk, reset,
 					 srcaD, {jrD, jumpD}, pcnextFD);
 
 	// register file (operates in decode and writeback)
-	regfile rf(clk, regwriteW, rsD, rtD, writeregW, rfinput, srcaD, srcbD);
+	regfile rf(clk, regwriteW, rsD, rtD, writeregW, rfinput, srcaD, srcbD, Register);
 
-	// lo and hi registers (operates ini decode and writeback)
+	// lo and hi registers (operates in decode and writeback)
 	hiandlo regs(clk, hlwriteW, hiW, loW, hireg, loreg);
 
 	// Fetch stage logic
@@ -67,7 +68,7 @@ module datapath(input logic 		clk, reset,
 	// Decode stage
 	flopenr  #(32) r1D(clk, reset, ~stallD, pcplus4F, pcplus4D);
 	flopenrc #(32) r2D(clk, reset, ~stallD, flushD, instrF, instrD);
-	signext 	   se(instrD[15:0], signimmD);
+	signext #(16)  se(instrD[15:0], 2'b01, signimmD);
 	sl2 		   immsh(signimmD, signimmshD);
 	adder		   pcadd2(pcplus4D, signimmshD, pcbranchD);
 	mux2 #(32) 	   forwardadmux(srcaD, aluoutM, forwardaD, srca2D);
@@ -110,7 +111,7 @@ module datapath(input logic 		clk, reset,
 	mux4 #(8)  byteselector(readdataW[7:0], readdataW[15:8], 
 						    readdataW[23:16],readdataW[31:24], 
 						    aluoutW[1:0], selectedbyteW);
-	signext8   se2(selectedbyteW, selectedbyteextW);
+	signext #(8) se2(selectedbyteW, 2'b01, selectedbyteextW);
 	mux2 #(32) datamux(readdataW, selectedbyteextW, lbW, selectedreaddataW);
 	mux2 #(32) resmux(aluoutW, selectedreaddataW, memtoregW, aluordata);
 	mux2 #(32) resorpc(aluordata, pcplus4W, jalW, resultW);

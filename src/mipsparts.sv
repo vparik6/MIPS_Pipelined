@@ -3,16 +3,15 @@
 module regfile(input  logic        clk, we3, 
                input  logic [4:0]  ra1, ra2, wa3, 
                input  logic [31:0] wd3, 
-               output logic [31:0] rd1, rd2);
-
-	logic [31:0] rf[31:0];
+               output logic [31:0] rd1, rd2,
+			   output logic [31:0] Register[31:0]);
 
 	always_ff @(negedge clk)
 		if (we3) 
-			rf[wa3] <= wd3;	
+			Register[wa3] <= wd3;	
 
-	assign rd1 = (ra1 != 0) ? rf[ra1] : 0;
-	assign rd2 = (ra2 != 0) ? rf[ra2] : 0;
+	assign rd1 = (ra1 != 0) ? Register[ra1] : 0;
+	assign rd2 = (ra2 != 0) ? Register[ra2] : 0;
 endmodule
 // adder
 module adder(input  logic [31:0] a, b,
@@ -32,18 +31,29 @@ module eqcmp(input logic [31:0] a, b,
 	
 	assign isEqual = (a === b) ? 1 : 0;
 endmodule
-// sign extend 16 bits
-module signext(input  logic [15:0] a,
-               output logic [31:0] y);
-              
-	assign y = {{16{a[15]}}, a};
-endmodule
-// sign extend 8 bits
-module signext8(input  logic [7:0]  a,
-				output logic [31:0] y);
 
-	assign y = {{24{a[7]}}, a};
+/*
+ extop: 2'b00 - zeros extend
+		2'b01 - sign extend
+		2'b10 - lui
+*/
+module signext #(parameter WIDTH = 16)
+				(input logic [WIDTH-1:0] a,
+				 input [1:0] extop,
+				 output logic [31:0] y);
+	always_comb
+		case(extop)
+			2'b00:
+				y = {{(32-WIDTH){1'b0}}, a};
+			2'b01:
+				y = {{(32-WIDTH){a[WIDTH-1]}}, a};
+			2'b10:
+				y = {a,{(32-WIDTH){1'b0}}};
+			default:
+				y = '0;
+		endcase
 endmodule
+
 
 module flopr #(parameter WIDTH = 8)
               (input  logic  clk, reset,

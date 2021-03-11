@@ -1,18 +1,19 @@
-//------------------------------------------------
-// Top level system including MIPS and memories
-//------------------------------------------------
+/*
+		MIPS top level module		
+*/
 
 module mipstop(input  logic clk, reset, 
-			   output logic [31:0] writedata, dataadr, 
-			   output logic memwrite);
+			   output logic [31:0] writedata, dataadr,
+			   output logic [31:0] DataMem[9:0],
+			   output logic [31:0] Register[31:0]);
 
 	logic [31:0] pc, instr, readdata;
-	logic 		 sb; //To choose load/store 'Byte' or 'Word'
+	logic sb;
   
-	// instantiate processor
-	mips mips(clk, reset, pc, instr, memwrite, sb, dataadr, writedata, readdata);
-	// instantiate instr memory
+	// instantiate processor and memories
+	mips mips(clk, reset, instr, readdata, pc, memwrite, sb, dataadr, writedata, Register);
+
 	imem imem(pc[7:2], instr);
-	// instantiate data memory
-	dmem dmem(clk, memwrite, sb, dataadr, writedata, readdata);
+
+	dmem dmem(clk, memwrite, sb, dataadr, writedata, readdata, DataMem);
 endmodule
