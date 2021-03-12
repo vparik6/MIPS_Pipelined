@@ -1,0 +1,12 @@
+//funct, aluop, alucontrol
+xxxxxx_00_0010
+xxxxxx_01_1010
+xxxxxx_11_1011
+100000_xx_0010
+100010_xx_1010
+100100_xx_0000
+100101_xx_0001
+101010_xx_1011
+000000_xx_0100
+000010_xx_0101
+xxxxxx_xx_xxxx

@@ -1,6 +1,6 @@
-module alu(input logic [31:0]  A, B,
-		   input logic [3:0]   F,
-		   input logic [4:0]   shamt,
+module alu(input  logic [31:0] A, B,
+		   input  logic [3:0]  F,
+		   input  logic [4:0]  shamt,
 		   output logic [31:0] Y,
 		   output logic zero);
 	

@@ -22,9 +22,9 @@ module controller(input logic 		 clk, reset,
 	logic 		multordivD, hlwriteD;
 	logic [1:0] mfhlD, mfhlE, mfhlM;
 
-	maindec md(opD, memtoregD, memwriteD, branchD, bneD,
+	maindec md(opD, functD, memtoregD, memwriteD, branchD, bneD,
 			   alusrcD, regdstD, regwriteD, jumpD, jalD, jrD, lbD, sbD,
-			   multordivD, hlwriteD, mfhlD, aluopD, functD);
+			   multordivD, hlwriteD, mfhlD, aluopD);
 
 	aludec  ad(functD, aluopD, alucontrolD);
 

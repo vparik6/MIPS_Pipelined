@@ -1,4 +1,4 @@
-module maindec(input  logic [5:0] op,
+module maindec(input  logic [5:0] op, funct,
                output logic       memtoreg, memwrite,
                output logic       branch, bne, alusrc,
 			   output logic [1:0] regdst,
@@ -6,8 +6,7 @@ module maindec(input  logic [5:0] op,
 			   output logic 	  jump, jal, jr, lb, sb,
 			   output logic 	  multordiv, hlwrite,
 			   output logic [1:0] mvhl,
-			   output logic [1:0] aluop,
-			   input logic  [5:0] funct);
+			   output logic [1:0] aluop);
 
 	logic [18:0] controls;
 
