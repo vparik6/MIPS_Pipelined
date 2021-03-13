@@ -16,6 +16,7 @@ logic [31:0] aluoutM, writedataM;
 logic  [31:0] readdataM;
 logic [5:0]  opD, functD;
 logic 		flushE;
+logic [31:0] Register [31:0];
 
 	logic [201:0] testvector[0:25];
 	logic [109:0] expected_output;
