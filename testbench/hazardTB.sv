@@ -18,7 +18,7 @@ module hazardTB();
 	always #1 clk = ~clk;
 	
 	initial begin
-		$readmemb("C:/Users/airum/Desktop/src/hazard_test.txt",testvector);
+		$readmemb("hazard_test.tv", testvector);
 		index = 0; errors = 0;
 		$monitor("index = %0d, testvector = %b", index, testvector[index]);
 	end

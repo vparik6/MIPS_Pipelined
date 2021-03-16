@@ -1,26 +1,26 @@
 module datapath_tb();
-logic 		clk, reset;
-logic  		memtoregE, memtoregM, memtoregW;
-logic  		pcsrcD, branchD, bneD;
-logic  		alusrcE;
-logic  [1:0]  regdstE;
-logic  		regwriteE, regwriteM, regwriteW;
-logic  		jumpD, jalD, jalW, jrD, lbW;
-logic  		multordivE, hlwriteE, hlwriteM, hlwriteW;
-logic  [1:0]  mfhlW;
-logic  [3:0]  alucontrolE;
-logic 		equalD;
-logic [31:0] pcF;
-logic  [31:0] instrF;
-logic [31:0] aluoutM, writedataM;
-logic  [31:0] readdataM;
-logic [5:0]  opD, functD;
-logic 		flushE;
-logic [31:0] Register [31:0];
+	logic 			clk, reset;
+	logic  			memtoregE, memtoregM, memtoregW;
+	logic  			pcsrcD, branchD, bneD;
+	logic  			alusrcE;
+	logic [1:0] 	regdstE;
+	logic  			regwriteE, regwriteM, regwriteW;
+	logic  			jumpD, jalD, jalW, jrD, lbW;
+	logic  			multordivE, hlwriteE, hlwriteM, hlwriteW;
+	logic [1:0] 	mfhlW;
+	logic [3:0] 	alucontrolE;
+	logic 			equalD;
+	logic [31:0]	pcF;
+	logic [31:0] 	instrF;
+	logic [31:0] 	aluoutM, writedataM;
+	logic [31:0] 	readdataM;
+	logic [5:0]  	opD, functD;
+	logic 		 	flushE;
+	logic [31:0] 	Register [31:0];
 
-	logic [201:0] testvector[0:25];
-	logic [109:0] expected_output;
-	logic [31:0] index, errors;
+	logic [201:0] 	testvector[0:25];
+	logic [109:0] 	expected_output;
+	logic [31:0] 	index, errors;
 
 datapath dut (.*);
 
@@ -31,7 +31,7 @@ end
 always #5 clk = ~clk;
 
 	initial begin
-		$readmemb("D:/PSU/2nd Term/Introduction to system verilog/MIPS_pipelined/MIPS_Pipelined/testfiles/datapath_test.txt",testvector);
+		$readmemb("datapath_test.tv", testvector);
 		index = 0; errors = 0;
         $monitor(" index = %0d, testvector = %b", index, testvector[index]);
         

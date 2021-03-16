@@ -14,7 +14,7 @@ module aludecTB();
 	always #5 clk = ~clk;
 			
 	initial begin
-		$readmemb("C:/Users/visha/Downloads/2. Winter 2021/ECE 571/MIPS_Pipelined/testfiles/aludec_test.txt", testvector); //change testvec location before running test
+		$readmemb("aludec_test.tv", testvector); //change testvec location before running test
 		index = 0; errors = 0;
 		$monitor("index = %0d, testvector = %b", index, testvector[index]);
 	end

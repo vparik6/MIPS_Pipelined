@@ -1,29 +1,29 @@
 module controllertb ();
-logic	clk, reset;
-logic  [5:0] opD, functD;
-logic		 flushE, equalD;
-logic 		 memtoregE, memtoregM;
-logic 		 memtoregW, memwriteM;
-logic 		 pcsrcD, branchD, bneD, alusrcE;
-logic [1:0] regdstE;
-logic 		 regwriteE, regwriteM, regwriteW, jumpD;
-logic 		 jalD, jalW, jrD, lbW, sbM;
-logic 		 multordivE, hlwriteE, hlwriteM, hlwriteW;
-logic [1:0] mfhlW;
-logic [3:0] alucontrolE;
+	logic		clk, reset;
+	logic [5:0] opD, functD;
+	logic		flushE, equalD;
+	logic 		memtoregE, memtoregM;
+	logic 	 	memtoregW, memwriteM;
+	logic 		pcsrcD, branchD, bneD, alusrcE;
+	logic [1:0] regdstE;
+	logic 		regwriteE, regwriteM, regwriteW, jumpD;
+	logic 		jalD, jalW, jrD, lbW, sbM;
+	logic 		multordivE, hlwriteE, hlwriteM, hlwriteW;
+	logic [1:0] mfhlW;
+	logic [3:0] alucontrolE;
 
-logic [4:0] 	ex_q1[$];
-logic [10:0] 	ex_q2[$];
-logic [4:0] 	ex_q3[$];
-logic [6:0] 	ex_q4[$];
-logic 			pcsrcD_exq[$];
-logic [5:0]		in_op[$];
-logic [5:0]		in_func[$];
-logic [4:0]		out_q1[$];
-logic [10:0]	out_q2[$];
-logic [4:0]		out_q3[$];
-logic [6:0]		out_q4[$];
-logic 			pcsrcD_outq[$];
+	logic [4:0] 	ex_q1[$];
+	logic [10:0] 	ex_q2[$];
+	logic [4:0] 	ex_q3[$];
+	logic [6:0] 	ex_q4[$];
+	logic 			pcsrcD_exq[$];
+	logic [5:0]		in_op[$];
+	logic [5:0]		in_func[$];
+	logic [4:0]		out_q1[$];
+	logic [10:0]	out_q2[$];
+	logic [4:0]		out_q3[$];
+	logic [6:0]		out_q4[$];
+	logic 			pcsrcD_outq[$];
 
 logic [5:0] opD_in [11] = '{6'b000000, 6'b100011, 6'b101011, 6'b000100, 6'b000101, 6'b001000, 6'b000010, 6'b100000, 6'b000011, 6'b001010, 6'b101000};
 logic [5:0] funct_in [12] = '{6'b100000, 6'b100010, 6'b100100, 6'b100101, 6'b101010, 6'b000000, 6'b000010, 6'b001000, 6'b011000, 6'b011010, 6'b010010, 6'b010000};
@@ -32,7 +32,6 @@ int clk_flag;
 int out_flag;
 
 controller dut (.clk(clk), .reset(reset), .opD(opD), .functD(functD), .flushE(flushE), .equalD(equalD), .memtoregE(memtoregE), .memtoregM(memtoregM), .memtoregW(memtoregW), .memwriteM(memwriteM), .pcsrcD(pcsrcD), .branchD(branchD), .bneD(bneD), .alusrcE(alusrcE), .regdstE(regdstE), .regwriteE(regwriteE), .regwriteM(regwriteM), .regwriteW(regwriteW), .jumpD(jumpD), .jalD(jalD), .jalW(jalW), .jrD(jrD), .lbW(lbW), .sbM(sbM), .multordivE(multordivE), .hlwriteE(hlwriteE), .hlwriteM(hlwriteM), .hlwriteW(hlwriteW), .mfhlW(mfhlW), .alucontrolE(alucontrolE));
-
 
 
 initial
@@ -45,7 +44,6 @@ begin
 	forever 
 		#5 clk = ~clk;
 end
-
 
 
 function void exp_outs (logic [5:0] op_in, func_in, flush_in, equal_in);
@@ -217,7 +215,6 @@ if (reset === 1'b0)
 endfunction
 
 
-
 initial
 begin
 	#40
@@ -237,7 +234,6 @@ begin
 	end
 	out_flag = 2;
 end
-
 
 
 
