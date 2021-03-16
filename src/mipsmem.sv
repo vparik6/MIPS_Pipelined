@@ -37,7 +37,7 @@ endmodule
 module dmem(input  logic  clk, we, sb, //sb signal to store byte or word
             input  logic [31:0] a, wd,
             output logic [31:0] rd,
-			output logic [31:0] DataMem[9:0]);
+			output bit 	 [31:0] DataMem[9:0]);
     
     initial begin
         DataMem[5] = 32'hABCD1234;

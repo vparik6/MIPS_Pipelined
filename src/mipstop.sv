@@ -4,7 +4,7 @@
 
 module mipstop(input  logic clk, reset, 
 			   output logic [31:0] writedata, dataadr,
-			   output logic [31:0] DataMem[9:0],
+			   output 	bit [31:0] DataMem[9:0],
 			   output logic [31:0] Register[31:0]);
 
 	logic [31:0] pc, instr, readdata;

@@ -50,23 +50,23 @@ module controller(input logic 		 clk, reset,
 	assert property(pipelineFlushed) else $warning("pipeline is not being flushed properly");
 	
 	property pipelinedIDEX;
-		@(posedge clk) disable iff (reset | flushE) ##1
-		{memtoregE, memwriteE, alusrcE, regdstE, regwriteE, alucontrolE, jalE, lbE, multordivE, hlwriteE, mfhlE, sbE} ==
-		$past({memtoregD, memwriteD, alusrcD, regdstD, regwriteD, alucontrolD, jalD, lbD, multordivD, hlwriteD, mfhlD, sbD});
+		@(posedge clk) disable iff (reset | flushE)
+		(opD) |=> ({memtoregE, memwriteE, alusrcE, regdstE, regwriteE, alucontrolE, jalE, lbE, multordivE, hlwriteE, mfhlE, sbE} ==
+		$past({memtoregD, memwriteD, alusrcD, regdstD, regwriteD, alucontrolD, jalD, lbD, multordivD, hlwriteD, mfhlD, sbD}));
 	endproperty	
-	assert property(pipelinedIDEX) else $warning("pipeline at IDEX is not working correctly");
+	c1: assert property(pipelinedIDEX) else $warning("pipeline at IDEX is not working correctly");
 	
 	property pipelinedEXMEM;
-	    @(posedge clk) disable iff (reset)
-		{memtoregM, memwriteM, regwriteM, jalM, lbM, hlwriteM, mfhlM, sbM} ==
-		$past({memtoregE, memwriteE, regwriteE, jalE, lbE, hlwriteE, mfhlE, sbE});
+	    @(posedge clk) disable iff (reset | flushE)
+		(opD) |=> ({memtoregM, memwriteM, regwriteM, jalM, lbM, hlwriteM, mfhlM, sbM} ==
+		$past({memtoregE, memwriteE, regwriteE, jalE, lbE, hlwriteE, mfhlE, sbE}));
 	endproperty
-	assert property(pipelinedEXMEM) else $warning("pipeline at EXMEM is not working correctly");
+	c2: assert property(pipelinedEXMEM) else $warning("pipeline at EXMEM is not working correctly");
 	
 	property pipelinedMEMWB;
-	    @(posedge clk) disable iff (reset)
-		{memtoregW, regwriteW, jalW, lbW, hlwriteW, mfhlW} == $past({memtoregM, regwriteM, jalM, lbM, hlwriteM, mfhlM});
+	    @(posedge clk) disable iff (reset | flushE)
+		(opD) |=> ({memtoregW, regwriteW, jalW, lbW, hlwriteW, mfhlW} == $past({memtoregM, regwriteM, jalM, lbM, hlwriteM, mfhlM}));
 	endproperty
-	assert property(pipelinedMEMWB) else $warning("pipeline at MEMWB is not working correctly");
+	c3:assert property(pipelinedMEMWB) else $warning("pipeline at MEMWB is not working correctly");
 	
 endmodule

@@ -5,7 +5,7 @@ module mipstest();
     bit          clk;
     bit          reset = 1'b1;
     logic [31:0] writedata, dataadr;
-    bit [31:0] DataMem[9:0];
+    bit   [31:0] DataMem[9:0];
     logic [31:0] Register[31:0];
 	int error;
     // instantiate device to be tested
@@ -20,19 +20,31 @@ module mipstest();
     begin
 		repeat(14) @(negedge clk);
 		if(Register[23] == 32'h8) $display("ALU test passed");
-		else error++;
+		else begin
+			$display("Did not pass ALU test");
+			error++;
+		end 
 
 		repeat(8) @(negedge clk);
 		if(DataMem[6] == 32'hab)  $display("Load byte store byte test passed");
-	        else error++;
+	    else begin
+			$display("Did not pass Load byte store byte test");
+			error++;
+		end 
 		
 		repeat(11) @(negedge clk);
 		if(Register[27] == 32'h447a)  $display("RAW test passed");
-		else error++;		
+		else begin
+			$display("Did not pass RAW test");
+			error++;
+		end
 		
 		repeat(36) @(negedge clk);
-                if(dataadr == 8 && writedata == 32'h04ee9112)  $display("Passed full instruction set test\n"); 
-		else error++;
+		if(dataadr == 8 && writedata == 32'h04ee9112)  $display("Passed full instruction set test\n"); 
+		else begin
+			$display("Did not pass the full test");
+			error++;
+		end
 	    
 		assert(error == 0) else begin
 			$display("Did not pass the full test");

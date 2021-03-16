@@ -15,9 +15,11 @@ module alu(input logic [31:0]  A, B,
 			4'b0001: Y = A | B;		   // OR
 			4'b0010: Y = A + B;		   // ADD
 			4'b1010: begin			   // SUB
-			            if (A>=B) Y = A - B;
-						else begin temp = ~B + 1;
-						           Y = A + temp;
+			            if (A>=B) 
+							Y = A - B;
+						else begin 
+							temp = ~B + 1;
+						    Y = A + temp;
 						end
 					 end
 			4'b0011: Y = ~(A | B);     // NOR
