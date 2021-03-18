@@ -3,8 +3,6 @@ module alu(input logic [31:0]  A, B,
 		   input logic [4:0]   shamt,
 		   output logic [31:0] Y,
 		   output logic zero);
-	
-	logic [31:0] temp;
 
 	assign zero = (Y == 32'b0);
 	
@@ -15,12 +13,8 @@ module alu(input logic [31:0]  A, B,
 			4'b0001: Y = A | B;		   // OR
 			4'b0010: Y = A + B;		   // ADD
 			4'b1010: begin			   // SUB
-			            if (A>=B) 
-							Y = A - B;
-						else begin 
-							temp = ~B + 1;
-						    Y = A + temp;
-						end
+			            if (A>=B) Y = A - B;
+						else Y = A + (~B + 1);
 					 end
 			4'b0011: Y = ~(A | B);     // NOR
 			4'b0111: Y = A ^ B;        // XOR

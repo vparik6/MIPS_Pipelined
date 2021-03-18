@@ -155,10 +155,10 @@ module multdivunit(input logic 	[31:0] a, b,
 
 	always_comb
 		if (multordiv)
-			assign {hi, lo} = a * b;
+			{hi, lo} = a * b;
 		else
 		begin
-			assign lo = a / b;
-			assign hi = a % b;
+			lo = a / b;
+			hi = a % b;
 		end
 endmodule
