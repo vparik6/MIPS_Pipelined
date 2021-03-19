@@ -1141,7 +1141,7 @@ end
 
 always @(posedge clk)
 begin
-	if(flag ===0)
+	if(flag === 0)
 	begin
 		flag = flag;
 	end
@@ -1170,12 +1170,20 @@ begin
 		begin
 			if(ex_q1[i] !== out_q1[i])
 				$display("Not equal ex_q1[%d] = %d, out_q1[%d] = %d", i, ex_q1[i], i, out_q1[i]);
+			else
+				$display("ex_q1[%d] = %b, out_q1[%d] = %b", i, ex_q1[i], i, out_q1[i]);
 			if(ex_q2[i] !== out_q2[i])
 				$display("Not equal ex_q2[%d] = %d, out_q2[%d] = %d", i, ex_q2[i], i, out_q2[i]);
+			else 
+				$display("ex_q2[%d] = %b, out_q2[%d] = %b", i, ex_q2[i], i, out_q2[i]);
 			if(ex_q3[i] !== out_q3[i])
 				$display("Not equal ex_q3[%d] = %d, out_q3[%d] = %d", i, ex_q3[i], i, out_q3[i]);
+			else 
+				$display("ex_q3[%d] = %b, out_q3[%d] = %b", i, ex_q3[i], i, out_q3[i]);
 			if(ex_q4[i] !== out_q4[i])
 				$display("Not equal ex_q4[%d] = %d, out_q4[%d] = %d", i, ex_q4[i], i, out_q4[i]);
+			else 
+				$display("ex_q4[%d] = %b, out_q4[%d] = %b", i, ex_q4[i], i, out_q4[i]);
 		end
 		$display("-----------------------------\n          End of run\n-----------------------------");
 		$finish();
